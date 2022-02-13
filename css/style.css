@@ -1,0 +1,22 @@
+body {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.input-box {
+  border-radius: 100rem;
+}
+
+.input-box input {
+  outline: none;
+  border: none;
+  background-color: rgba(128, 128, 128, 0.342);
+  color: #fff;
+}
+
+@media screen and (max-width: 768px) {
+  .input-box {
+    width: 100%;
+  }
+}
