@@ -11,7 +11,13 @@ main {
   border-radius: 1rem;
 }
 
-.right-part{
-  border-radius: 0  1rem 1rem 0;
+.right-part {
+  border-radius: 0 1rem 1rem 0;
   background-color: rgba(235, 135, 233, 0.272);
+}
+
+input[type="text"] {
+  border-radius: 1rem;
+  background: transparent;
+  background-color: aliceblue !important;
 }
