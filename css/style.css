@@ -1,22 +1,12 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+
 body {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  font-family: "Poppins", sans-serif;
 }
 
-.input-box {
-  border-radius: 100rem;
-}
-
-.input-box input {
-  outline: none;
-  border: none;
-  background-color: rgba(128, 128, 128, 0.342);
-  color: #fff;
-}
-
-@media screen and (max-width: 768px) {
-  .input-box {
-    width: 100%;
-  }
+main {
+  border-radius: 1rem;
 }
