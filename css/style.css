@@ -26,6 +26,9 @@ input[type="text"] {
   background: transparent;
   background-color: aliceblue !important;
 }
+.button-round {
+  border-radius: 0 1rem 1rem 0;
+}
 
 @media screen and (max-width: 400px) {
   .me-custom-0 {
