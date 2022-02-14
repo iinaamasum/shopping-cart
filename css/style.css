@@ -30,6 +30,7 @@ input[type="text"] {
   border-radius: 0 1rem 1rem 0;
 }
 
+
 @media screen and (max-width: 400px) {
   .me-custom-0 {
     margin-left: 0;

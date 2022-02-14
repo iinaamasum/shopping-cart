@@ -6,6 +6,10 @@ function updateValue(id, priceId, unitPrice, isMinus) {
     input.value--;
     document.getElementById(priceId).innerHTML =
       parseInt(input.value) * parseInt(unitPrice);
+  } else if (parseInt(input.value) == 0 && !isMinus) {
+    input.value++;
+    document.getElementById("items-num").innerHTML =
+      parseInt(document.getElementById("items-num").innerHTML) + 1;
   } else if (!isMinus) {
     input.value++;
     document.getElementById(priceId).innerHTML =
@@ -41,17 +45,50 @@ function updateTotalCost() {
   }
 }
 
+function grossPriceUpdate() {
+  if (parseFloat(document.getElementById("total-pay-now").innerText) == 0) {
+    document.getElementById("total-cost").innerHTML = 0;
+  }
+  if (parseInt(document.getElementById("items-num").innerText) > 0) {
+    document.getElementById("items-num").innerHTML =
+      parseInt(document.getElementById("items-num").innerText) - 1;
+  }
+}
+
+/* adding promo code */
+
+function udateDisProperty(isGreen) {
+  document.getElementById("promo-dis").removeChild("div");
+  let lulu = document.createElement("div");
+  if (isGreen) {
+    lulu.innerHTML = `
+    <h3 class="text-success rounded text-center py-2 shadow">Promo code successfully</h3>
+    `;
+  } else {
+    lulu.innerHTML = `
+    <h3 class="text-danger rounded text-center py-2 shadow">No promo code applied</h3>`;
+  }
+  document.getElementById("promo-dis").appendChild(lulu);
+}
+
 let totalCostBeforePromo = document.getElementById("total-pay-now").innerText;
 
 document.getElementById("promo-code-btn").addEventListener("click", () => {
   if (document.getElementById("promo-code-input").value == "PROMO1") {
     document.getElementById("promo-code").innerText = 99.23;
+    // document.getElementById("promo-text").innerText = "PROMO1";
+    udateDisProperty(true);
   } else if (document.getElementById("promo-code-input").value == "PROMO2") {
     document.getElementById("promo-code").innerText = 69.23;
+    // document.getElementById("promo-text").innerText = "PROMO2";
+    udateDisProperty(true);
   } else if (document.getElementById("promo-code-input").value == "PROMO3") {
     document.getElementById("promo-code").innerText = 49.23;
+    // document.getElementById("promo-text").innerText = "PROMO3";
+    udateDisProperty(true);
   } else {
     document.getElementById("promo-code").innerText = "0.00";
+    udateDisProperty(false);
   }
   document.getElementById("total-pay-now").innerText = (
     totalCostBeforePromo -
@@ -85,16 +122,20 @@ document.getElementById("plus-3").addEventListener("click", function () {
 });
 
 document.getElementById("delete-1").addEventListener("click", function () {
-  document.getElementById("bag").style.textDecoration = "line-through";
-  document.getElementById("bag").style.color = "red";
   document.getElementById("input-1").value = 0;
+  document.getElementById("price-1").innerHTML = 0;
+  updateTotalCost();
+  grossPriceUpdate();
 });
 document.getElementById("delete-2").addEventListener("click", function () {
-  document.getElementById("shoes").style.textDecoration = "line-through";
-  document.getElementById("shoes").style.color = "red";
   document.getElementById("input-2").value = 0;
+  document.getElementById("price-2").innerHTML = 0;
+  updateTotalCost();
+  grossPriceUpdate();
 });
 document.getElementById("delete-3").addEventListener("click", function () {
-  document.getElementById("watch").style.color = "red";
   document.getElementById("input-3").value = 0;
+  document.getElementById("price-3").innerHTML = 0;
+  updateTotalCost();
+  grossPriceUpdate();
 });
