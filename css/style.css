@@ -33,6 +33,12 @@ input[type="text"] {
   opacity: 0.4;
 }
 
+@media screen and (max-width: 991px) {
+  .right-part {
+    border-radius: 0 0 1rem 1rem;
+  }
+}
+
 @media screen and (max-width: 400px) {
   .me-custom-0 {
     margin-left: 0;
