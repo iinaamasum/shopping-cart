@@ -29,7 +29,9 @@ input[type="text"] {
 .button-round {
   border-radius: 0 1rem 1rem 0;
 }
-
+.opacity-level {
+  opacity: 0.4;
+}
 
 @media screen and (max-width: 400px) {
   .me-custom-0 {

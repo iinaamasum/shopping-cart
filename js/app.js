@@ -10,6 +10,8 @@ function updateValue(id, priceId, unitPrice, isMinus) {
     input.value++;
     document.getElementById("items-num").innerHTML =
       parseInt(document.getElementById("items-num").innerHTML) + 1;
+    document.getElementById(priceId).innerHTML =
+      parseInt(input.value) * parseInt(unitPrice);
   } else if (!isMinus) {
     input.value++;
     document.getElementById(priceId).innerHTML =
@@ -58,33 +60,31 @@ function grossPriceUpdate() {
 /* adding promo code */
 
 function udateDisProperty(isGreen) {
-  document.getElementById("promo-dis").removeChild("div");
-  let lulu = document.createElement("div");
   if (isGreen) {
-    lulu.innerHTML = `
-    <h3 class="text-success rounded text-center py-2 shadow">Promo code successfully</h3>
-    `;
+    document.getElementById("promo-dis").innerText = "Promo discount applied";
+    document.getElementById("promo-dis-colour").style.color = "green";
+    document.getElementById("promo-dis-colour").style.border =
+      "3px solid green";
+    document.getElementById("promo-dis-colour").style.borderRadius = ".5rem";
   } else {
-    lulu.innerHTML = `
-    <h3 class="text-danger rounded text-center py-2 shadow">No promo code applied</h3>`;
+    document.getElementById("promo-dis").innerText =
+      "Promo discount not applied";
+    document.getElementById("promo-dis-colour").style.color = "red";
+    document.getElementById("promo-dis-colour").style.border = "3px solid red";
+    document.getElementById("promo-dis-colour").style.borderRadius = ".5rem";
   }
-  document.getElementById("promo-dis").appendChild(lulu);
 }
 
-let totalCostBeforePromo = document.getElementById("total-pay-now").innerText;
-
 document.getElementById("promo-code-btn").addEventListener("click", () => {
+  let totalCostBeforePromo = document.getElementById("total-pay-now").innerText;
   if (document.getElementById("promo-code-input").value == "PROMO1") {
     document.getElementById("promo-code").innerText = 99.23;
-    // document.getElementById("promo-text").innerText = "PROMO1";
     udateDisProperty(true);
   } else if (document.getElementById("promo-code-input").value == "PROMO2") {
     document.getElementById("promo-code").innerText = 69.23;
-    // document.getElementById("promo-text").innerText = "PROMO2";
     udateDisProperty(true);
   } else if (document.getElementById("promo-code-input").value == "PROMO3") {
     document.getElementById("promo-code").innerText = 49.23;
-    // document.getElementById("promo-text").innerText = "PROMO3";
     udateDisProperty(true);
   } else {
     document.getElementById("promo-code").innerText = "0.00";
@@ -94,6 +94,7 @@ document.getElementById("promo-code-btn").addEventListener("click", () => {
     totalCostBeforePromo -
     parseFloat(document.getElementById("promo-code").innerText)
   ).toFixed(2);
+  document.getElementById("promo-code-btn").disabled = true;
 });
 
 document.getElementById("minus-1").addEventListener("click", function () {

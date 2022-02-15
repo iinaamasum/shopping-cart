@@ -131,13 +131,15 @@
                     <h5>Product Gross Price</h5>
                     <h4>$<span id="total-cost">330</span></h4>
                 </div>
+                <P class="text-center opacity-level">Promo-code: i) PROMO1 ii) PROMO2 iii) PROMO3</P>
+
                 <div class="row">
                     <div class="col-7 text-center">
                         <h4 class="fw-normal">Promo Code</h4>
                         <div class="input-group mb-3">
                             <input id="promo-code-input" type="text" class="form-control text-center shadow-none"
                                 placeholder="Enter your code">
-                            <button class="button-round btn btn-outline-secondary shadow-none" type="button"
+                            <button class="button-round btn btn-outline-secondary shadow-none" type=""
                                 id="promo-code-btn">Button</button>
                         </div>
                     </div>
@@ -156,8 +158,8 @@
                     <h6>VAT</h6>
                     <h5>$<span id="total-vat">33.00</span></h5>
                 </div>
-                <div class="d-flex justify-content-between">
-                    <h6>Promo Discount</h6>
+                <div id="promo-dis-colour" class="d-flex justify-content-between p-1 pt-2">
+                    <h6 id="promo-dis">Promo Discount</h6>
                     <h5>- $<span id="promo-code">0.00</span></h5>
                 </div>
                 <hr>
@@ -174,9 +176,6 @@
             </div>
         </div>
     </main>
-    <div id="promo-dis" class="container">
-        
-    </div>
 
     <!-- bootstrap script  -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
