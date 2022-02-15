@@ -95,6 +95,7 @@ document.getElementById("promo-code-btn").addEventListener("click", () => {
     parseFloat(document.getElementById("promo-code").innerText)
   ).toFixed(2);
   document.getElementById("promo-code-btn").disabled = true;
+  document.getElementById("promo-code-input").disabled = true;
 });
 
 document.getElementById("minus-1").addEventListener("click", function () {
